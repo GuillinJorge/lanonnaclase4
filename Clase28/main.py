@@ -1,27 +1,21 @@
-class Usuario:
-    nombre:str 
-    edad:int
-    sexo:str
-    
-    
-def saludar(self, saludo_especial:str) -> None:
-    print(f"{saludo_especial} {self.nombre}!")
-    
+from modules import Usuario
+from modules import UsuarioManager as Manager
+
 def main():
-    marcos: Usuario = Usuario()
-    marcos.nombre = "Marco Aurelio"
-    marcos.edad = 37
-    marcos.sexo = "masc"
+    marcos: Usuario = Usuario("Marco Aurelio", "Romulo")
+    mariela: Usuario = Usuario("Mariela Lopez", "Gilda")
     
+    marcos.set_email("cac_company")
+    mariela.set_email("bianchi_vinos")
     
-    mariela: Usuario = Usuario()
-    mariela.nombre = "Mariela Lopez"
-    mariela.edad = 40
-    mariela.sexo = "fem"
+    crud = Manager()
+   
+    crud.controller_save_user(marcos)
+    crud.controller_save_user(mariela)
+    print(crud.db)
+    
+    crud.controller_delete_user("Romulo")
+    print(crud.db)
 
-    marcos.saludar("Hola mundo, soy: -> ") 
-    mariela.saludar("Hi, I am ->")
-    
-
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
