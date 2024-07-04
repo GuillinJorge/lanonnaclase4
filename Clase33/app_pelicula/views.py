@@ -1,14 +1,9 @@
-from django.db import models
+from .models import Pelicula
+from .serializer import PeliculaSerializer
+from rest_framework import wievsets
 
-class Pelicula(models.Model):
-    nombre = models.CharField(max_length=200, unique=True)
-    fecha_de_release = models.DateField()
-    genero = models.CharField(max_length=200)
-    duracion = models.IntegerField()
+class PeliculaViewSet(viewsets.ModelViewSet):
+    queryset =  Pelicula.objects.all()
+    serializer_class = PeliculaSerializer
     
-    def __str__(self) -> str:
-        return self.nombre
-    
-    class Meta:
-        db_table = 'pelicula'
 
