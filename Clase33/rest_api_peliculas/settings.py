@@ -38,6 +38,7 @@ INSTALLED_APPS += CUSTOM_APPS # Sumatoria de apps instaladas y customizadas
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -117,3 +118,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Security settings
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://localhost:8000',
+    'http://localhost:8000', # If also using http
+    'http://localhost:8080',
+]
+
+CORS_ALLOW_ALL_ORIGINS = ["*"]
