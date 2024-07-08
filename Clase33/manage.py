@@ -20,3 +20,13 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+curl -X POST http://127.0.0.1:8000/pelicula/ \
+    -H "Content-Type: application/json" \
+    -d '{
+        "nomnbre": "Rocky IV",
+        "duracion": 120,
+        "fecha_de_release": "1998-05-03",
+        "genero": "Deportes"
+    }'

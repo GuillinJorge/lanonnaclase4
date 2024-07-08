@@ -17,9 +17,9 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-CUSTOM_APPS =[
-    'app_pelicula',
-    'rest_framework'
+CUSTOM_APPS = [
+    "app_pelicula",
+    "rest_framework",
 ]
 
 
