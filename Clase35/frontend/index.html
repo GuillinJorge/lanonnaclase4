@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peliculas</title>
+    <style>
+        #success-message {
+            display: none;
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Las Peliculas</h1>
+    <hr>
+    <section id="crear_pelicula">
+        <form id="crear_pelicula_form">
+            <label for="nombre">Ingresar el nombre de la pelicula</label>
+            <input type="text" name="nombre" id="nombre">
+            <br>
+            <label for="duracion">Ingresar la duración de la pelicula</label>
+            <input type="text" name="duracion" id="duracion">
+            <br>
+            <label for="genero">Ingresar el genero de la pelicula</label>
+            <select name="genero" id="genero">
+                <option value="accion">Acción</option>
+                <option value="comedia">Comedia</option>
+                <option value="drama">Drama</option>
+                <option value="infantil">Infantil</option>
+                <option value="terror">Terror</option>
+                <option value="animacion">Animación</option>
+                <option value="suspenso">Suspenso</option>
+                <option value="ciencia_ficcion">Ciencia Ficción</option>
+            </select>
+            <br>
+            <label for="fecha_release">Ingresar la fecha de creación de la pelicula</label>
+            <input type="date" name="fecha_release" id="fecha_release">
+            <br>
+            <button id="btn-post"> Crear pelicula</button>
+        </form>
+        <div id="success-message">¡Película ingresada correctamente!</div>
+    </section>
+    <hr>
+    <section id="mostrar_peliculas">
+        <button id="btn-get">Mostrar Peliculas</button>
+        <div id="peliculas"></div>        
+    </section>
+</body>
+<script src="static/js/index.js"></script>
+</html>
