@@ -1,8 +1,33 @@
+/**
+ * Script para gestionar las operaciones CRUD (Crear, Leer, Actualizar, Eliminar) de películas
+ * a través de una API REST usando fetch y el patrón MVC.
+ * 
+ * Variables:
+ * - form: Referencia al formulario para crear nuevas películas.
+ * - btn: Referencia al botón de creación de películas.
+ * - successMessage: Referencia al mensaje de éxito que se muestra al crear una película.
+ * - URL_API_BASE: URL base de la API de películas.
+ * 
+ * Eventos:
+ * - Click en el botón de creación de películas.
+ * - Click en el botón de mostrar películas.
+ * 
+ * Clases:
+ * - Pelicula: Representa una película y contiene métodos para generar su HTML.
+ * 
+ * Funciones:
+ * - fetchPeliculas: Obtiene y muestra la lista de películas desde la API.
+ * - deletePelicula: Elimina una película específica mediante su ID.
+ * - toggleEditForm: Muestra u oculta el formulario de edición de una película.
+ * - editPelicula: Envía los datos editados de una película a la API.
+ */
+
 const form = document.getElementById("crear_pelicula_form");
 const btn = document.getElementById("btn-post");
 const successMessage = document.getElementById("success-message");
 const URL_API_BASE = "http://127.0.0.1:8000/api/pelicula/";
 
+// Evento para manejar la creación de una nueva película
 btn.addEventListener("click", (e) => {
     e.preventDefault();
     fetch(URL_API_BASE, {
@@ -25,6 +50,7 @@ btn.addEventListener("click", (e) => {
     .catch(error => console.log({error}));
 });
 
+// Clase para representar una película y generar su HTML
 class Pelicula {
     constructor({fecha_release, genero, id, nombre, duracion}) {
         this.fecha_release = fecha_release;
@@ -44,8 +70,10 @@ class Pelicula {
                     <li>Género: ${this.genero}</li>
                     <li>Fecha de lanzamiento: ${this.fecha_release}</li>
                 </ul>
-                <button onclick="deletePelicula(${this.id})">Eliminar</button>
-                <button onclick="toggleEditForm(${this.id})">Editar</button>
+                <div class="boton-container">
+                    <button onclick="deletePelicula(${this.id})">Eliminar</button>
+                    <button onclick="toggleEditForm(${this.id})">Editar</button>
+                </div>
                 <form id="edit-form-${this.id}" style="display: none;">
                     <label>Nombre:</label>
                     <input type="text" id="edit-nombre-${this.id}" value="${this.nombre}"><br>
@@ -73,8 +101,10 @@ class Pelicula {
 
 const btnGet = document.getElementById("btn-get");
 
+// Evento para manejar la obtención de la lista de películas
 btnGet.addEventListener("click", fetchPeliculas);
 
+// Función para obtener y mostrar la lista de películas
 function fetchPeliculas() {
     fetch(URL_API_BASE)
     .then(res => res.json())
@@ -89,6 +119,7 @@ function fetchPeliculas() {
     .catch(error => console.log({error}));
 }
 
+// Función para eliminar una película específica mediante su ID
 function deletePelicula(id) {
     fetch(`${URL_API_BASE}${id}/`, {
         method: 'DELETE'
@@ -99,11 +130,13 @@ function deletePelicula(id) {
     .catch(error => console.log({error}));
 }
 
+// Función para mostrar u ocultar el formulario de edición de una película
 function toggleEditForm(id) {
     const form = document.getElementById(`edit-form-${id}`);
     form.style.display = form.style.display === 'none' ? 'block' : 'none';
 }
 
+// Función para enviar los datos editados de una película a la API
 function editPelicula(id) {
     const nombre = document.getElementById(`edit-nombre-${id}`).value;
     const duracion = document.getElementById(`edit-duracion-${id}`).value;

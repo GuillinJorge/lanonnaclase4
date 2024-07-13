@@ -1,19 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--
+    HTML para la interfaz del Gestor de Películas Ver 0.1.
+    
+    - <meta charset="UTF-8">: Define la codificación de caracteres como UTF-8.
+    - <meta name="viewport" content="width=device-width, initial-scale=1.0">: Configuración para un diseño responsivo.
+    - <link rel="stylesheet" href="/Clase35/frontend/assets/css/style.css">: Enlace al archivo CSS para los estilos.
+    - <title>Gestor de Peliculas Ver 0.1</title>: Título de la página web.
+    -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peliculas</title>
-    <style>
-        #success-message {
-            display: none;
-            color: green;
-            margin-top: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="/Clase35/frontend/assets/css/style.css">
+    <title>Gestor de Peliculas Ver 0.1</title>
 </head>
 <body>
-    <h1>Las Peliculas</h1>
+    <!--
+    Contenido principal de la página del Gestor de Películas.
+    
+    - <h1>: Encabezado principal de la página.
+    - <hr>: Línea horizontal de separación.
+    
+    - <section id="crear_pelicula">: Sección para crear una nueva película.
+        - <form id="crear_pelicula_form">: Formulario para ingresar los datos de la nueva película.
+            - <label for="nombre">: Etiqueta para el nombre de la película.
+            - <input type="text" name="nombre" id="nombre">: Campo de texto para ingresar el nombre de la película.
+            - <label for="duracion">: Etiqueta para la duración de la película.
+            - <input type="text" name="duracion" id="duracion">: Campo de texto para ingresar la duración de la película.
+            - <label for="genero">: Etiqueta para el género de la película.
+            - <select name="genero" id="genero">: Lista desplegable para seleccionar el género de la película.
+                - <option value="accion">Acción</option>: Opción para el género Acción.
+                - <option value="comedia">Comedia</option>: Opción para el género Comedia.
+                - <option value="drama">Drama</option>: Opción para el género Drama.
+                - <option value="infantil">Infantil</option>: Opción para el género Infantil.
+                - <option value="terror">Terror</option>: Opción para el género Terror.
+                - <option value="animacion">Animación</option>: Opción para el género Animación.
+                - <option value="suspenso">Suspenso</option>: Opción para el género Suspenso.
+                - <option value="ciencia_ficcion">Ciencia Ficción</option>: Opción para el género Ciencia Ficción.
+            - <label for="fecha_release">: Etiqueta para la fecha de creación de la película.
+            - <input type="date" name="fecha_release" id="fecha_release">: Campo de fecha para ingresar la fecha de creación de la película.
+            - <button id="btn-post">Crear pelicula</button>: Botón para enviar el formulario y crear la película.
+        - <div id="success-message">¡Película ingresada correctamente!</div>: Mensaje de éxito que se muestra al crear una película.
+    -->
+    <h1>Gestor de Peliculas Ver 0.1</h1>
     <hr>
     <section id="crear_pelicula">
         <form id="crear_pelicula_form">
@@ -43,10 +72,18 @@
         <div id="success-message">¡Película ingresada correctamente!</div>
     </section>
     <hr>
+    <!--
+    - <section id="mostrar_peliculas">: Sección para mostrar la lista de películas.
+        - <button id="btn-get">Mostrar Peliculas</button>: Botón para obtener y mostrar la lista de películas.
+        - <div id="peliculas"></div>: Contenedor para la lista de películas.
+    -->
     <section id="mostrar_peliculas">
         <button id="btn-get">Mostrar Peliculas</button>
         <div id="peliculas"></div>        
     </section>
+    <!--
+    - <script src="static/js/index.js"></script>: Enlace al archivo JavaScript que contiene la lógica de la página.
+    -->
 </body>
 <script src="static/js/index.js"></script>
 </html>

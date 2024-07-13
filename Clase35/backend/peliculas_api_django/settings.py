@@ -71,25 +71,6 @@ WSGI_APPLICATION = "peliculas_api_django.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-
-
-#DATABASES = {
-#    "default" :{
-#        "ENGINE": "django.db.backends.mysql",
-#        "NAME": "pelicula_db",
-#        "USER": "root",
-#        "PASSWORD": "codo_codo",
-#        "HOST": "127.0.0.1",
-#        "PORT": "3306",
-#    }
-#}
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',

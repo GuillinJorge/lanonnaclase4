@@ -1,0 +1,189 @@
+/**
+ * CSS para estilizar la página del Gestor de Películas.
+ * 
+ * body:
+ * - Configuración de la fuente 'Roboto', alineación y centrado de contenido.
+ * - Fondo con degradado lineal de negro a azul oscuro.
+ * - Color de texto blanco con sombra gris, texto en negrita.
+ * 
+ * h1:
+ * - Texto centrado.
+ * 
+ * section:
+ * - Ancho máximo de 600px y ancho del 80% del contenedor.
+ * - Margen y padding definidos, fondo semitransparente blanco.
+ * - Bordes redondeados y sombra.
+ * 
+ * form label:
+ * - Etiquetas de formulario en bloque, con margen superior.
+ * 
+ * input[type="text"], input[type="date"], select:
+ * - Ancho completo, padding interno, margen superior e inferior.
+ * - Borde azul fluorescente, bordes redondeados, ajuste de caja.
+ * 
+ * button:
+ * - Botones sin borde, fondo azul, texto blanco.
+ * - Padding interno, cursor de puntero, transición de color.
+ * - Bordes redondeados.
+ * 
+ * button:hover:
+ * - Cambio de color de fondo al pasar el cursor.
+ * 
+ * #success-message:
+ * - Mensaje de éxito oculto por defecto, margen superior.
+ * - Color de texto blanco con sombra gris, texto en negrita.
+ * - Ajuste de caja y animación de marquee.
+ * 
+ * #mostrar_peliculas:
+ * - Margen superior para separar del formulario.
+ * 
+ * .pelicula:
+ * - Contenedor de película con flexbox para alineación.
+ * - Espacio entre elementos y alineación centrada.
+ * 
+ * .boton-container:
+ * - Contenedor de botones en línea, con espacio entre ellos.
+ * 
+ * .boton-container button:
+ * - Botones sin borde, fondo azul, texto blanco.
+ * - Padding interno, cursor de puntero, transición de color.
+ * - Bordes redondeados.
+ * 
+ * .boton-container .btn-editar:hover:
+ * - Cambio de color de fondo al pasar el cursor para el botón de editar.
+ * 
+ * .boton-container .btn-eliminar:hover:
+ * - Cambio de color de fondo al pasar el cursor para el botón de eliminar.
+ * 
+ * .boton-container button:focus:
+ * - Eliminación del contorno al enfocar.
+ * 
+ * @keyframes marquee:
+ * - Animación para el mensaje de éxito, desplazándose de derecha a izquierda.
+ * 
+ * @media (max-width: 600px):
+ * - Configuración responsiva para secciones, aumentando el ancho al 95%.
+ */
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, black, darkblue);
+    color: white;
+    text-shadow: 2px 2px 4px gray;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+}
+
+section {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 2px solid #00f;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#success-message {
+    display: none;
+    margin-top: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px gray;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    animation: none; /* Por defecto lo deje deshabilitado */
+}
+
+#mostrar_peliculas {
+    margin-top: 20px;
+}
+
+.pelicula {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.boton-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.boton-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.boton-container .btn-editar:hover {
+    background-color: #0056b3;
+}
+
+.boton-container .btn-eliminar:hover {
+    background-color: #ff0000;
+}
+
+.boton-container button:focus {
+    outline: none;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+
+/* Responsividad */
+@media (max-width: 600px) {
+    section {
+        width: 95%;
+    }
+}
